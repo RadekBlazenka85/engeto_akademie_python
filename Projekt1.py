@@ -1,5 +1,5 @@
 '''
-author = 
+author =
 '''
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer, 
@@ -31,7 +31,7 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
-UCTY = ['bob', '123' , 'ann' , 'pass123' , 'mike' , 'password123' , 'liz' , 'pass123' , ]
+UCTY = {'bob': '123' , 'ann' : 'pass123' , 'mike' : 'password123' , 'liz' : 'pass123' , }
 ODDELOVAC = ('='*20)
 print(ODDELOVAC)
 print('Vítejte v aplikaci, prosím přihlašte se: ',)
@@ -41,7 +41,7 @@ HESLO = input ('Heslo: ',)
 print(ODDELOVAC)
 
 
-if JMENO and HESLO in UCTY:
+if UCTY.get(JMENO) == HESLO:
     print('Přihlášeno')
 
 else:
@@ -64,7 +64,7 @@ RUZNA_SLOVA = text.split()
 slova = []
 
 
-while RUZNA_SLOVA:
+for slovo in RUZNA_SLOVA:
 
     slovo = RUZNA_SLOVA.pop()
 
@@ -72,8 +72,8 @@ while RUZNA_SLOVA:
 
     if slovo: slova.append(slovo)
 
-
 print('Ve vybraném textu je' , str(len(slovo)) , 'slov.')
+
 
 velka_pocatecni_pismena = 0
 velka_pismena = 0
@@ -82,23 +82,23 @@ cisla = 0
 pocet_cisel = {}
 sumarizace = 0
 
-promenna = 0
 
-while promenna < len(slova):
-    if slova[promenna].istitle():
+
+for promenna in slova:
+    if promenna.istitle():
         velka_pocatecni_pismena = velka_pocatecni_pismena + 1
-    elif slova[promenna].isupper():
+    elif promenna.isupper():
         velka_pismena = velka_pismena + 1
-    elif slova[promenna].islower():
+    elif promenna.islower():
         mala_pismena = mala_pismena +1
-    elif slova[promenna].isnumeric():
+    elif promenna.isnumeric():
         cisla = cisla + 1
-        sumarizace = sumarizace + float(slova[promenna])
+        sumarizace = sumarizace + float(promenna)
 
-    l = len(slova[promenna])
+    l = len(promenna)
     pocet_cisel[l] = pocet_cisel.get(l, 0) + 1
 
-    promenna = promenna + 1
+
 
 print('Ve vybraném textu je' , str(velka_pocatecni_pismena) , 'slov začínajících velkým písmenem.')
 print('Ve vybraném textu je' , str(velka_pismena) , 'slov psaných velkými písmeny.')
