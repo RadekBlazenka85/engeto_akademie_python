@@ -66,13 +66,11 @@ slova = []
 
 for slovo in RUZNA_SLOVA:
 
-    slovo = RUZNA_SLOVA.pop()
-
     slovo = slovo.strip('.,:/;')
 
     if slovo: slova.append(slovo)
 
-print('Ve vybraném textu je' , str(len(slovo)) , 'slov.')
+print('Ve vybraném textu je' , str(len(slova)) , 'slov.')
 
 
 velka_pocatecni_pismena = 0
@@ -111,8 +109,8 @@ print(ODDELOVAC)
 delky = sorted(pocet_cisel)
 promenna = 0
 
-while promenna < len(delky):
-    delka = delky[promenna]
+for delka in delky:
+
     frekvence = pocet_cisel[delka]
 
     if len(str(delka)) == 1:
@@ -136,4 +134,6 @@ print(ODDELOVAC)
 print('KONEC PROGRAMU')
 exit()
 quit()
+
+
 
